@@ -1,1 +1,20 @@
-
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Katalog</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #f2f9f7; }
+    iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+  </style>
+</head>
+<body>
+  <iframe id="app"></iframe>
+  <script>
+    const GAS = 'https://script.google.com/macros/s/AKfycbyZ7J2aIx2DyJXW1L5DN7ibDEc6Z37gHngIpNoDbl0CTqr6hCtA8fxKOGFLA3aHoLgH_w/exec';
+    const page = new URLSearchParams(location.search).get('page') || '';
+    document.getElementById('app').src = page ? GAS + '?page=' + encodeURIComponent(page) : GAS;
+  </script>
+</body>
+</html>
