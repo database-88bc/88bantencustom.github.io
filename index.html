@@ -13,8 +13,11 @@
   <iframe id="app"></iframe>
   <script>
     const GAS = 'https://script.google.com/macros/s/AKfycbyZ7J2aIx2DyJXW1L5DN7ibDEc6Z37gHngIpNoDbl0CTqr6hCtA8fxKOGFLA3aHoLgH_w/exec';
-    const page = new URLSearchParams(location.search).get('page') || '';
-    document.getElementById('app').src = page ? GAS + '?page=' + encodeURIComponent(page) : GAS;
+    const ALLOWED = ['reseller', 'khusus', 'offline'];
+    const page = (new URLSearchParams(location.search).get('page') || '').toLowerCase();
+    document.getElementById('app').src = ALLOWED.includes(page)
+      ? GAS + '?page=' + encodeURIComponent(page)
+      : GAS;
   </script>
 </body>
 </html>
